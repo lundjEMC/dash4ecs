@@ -26,3 +26,4 @@ scrape_configs:
 
     static_configs:
         - targets: ['pushgateway:9100']
+        
