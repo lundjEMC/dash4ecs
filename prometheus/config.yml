@@ -20,3 +20,9 @@ scrape_configs:
 
     static_configs:
         - targets: ['node-exporter:9100']
+
+  - job_name: 'pushgateway'
+    # Prometheus push gateway
+
+    static_configs:
+        - targets: ['pushgateway:9100']
