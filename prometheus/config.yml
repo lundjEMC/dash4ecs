@@ -1,0 +1,22 @@
+global:
+  scrape_interval:     5s # By default, scrape targets every 5 seconds.
+
+  # Attach the following labes to any time series or alerts when communicating with
+  # external systems (federation, remote storage, Alertmanager, Grafana).
+  external_labels:
+    monitor: 'ECSlab-monitor'
+
+# scrape configurations contain info on endpoints to scrape:
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  - job_name: 'prometheus'
+    # Prometheus itself.
+
+    static_configs:
+         - targets: ['localhost:9090']
+
+  - job_name: 'dash-node'
+    # Prometheus Node exporter for the dashboard node
+
+    static_configs:
+        - targets: ['node-exporter:9100']
