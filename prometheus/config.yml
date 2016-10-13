@@ -22,8 +22,13 @@ scrape_configs:
         - targets: ['node-exporter:9100']
 
   - job_name: 'pushgateway'
-    # Prometheus push gateway
+    # Prometheus push gateway (stats can be pushed to this gateway)
 
     static_configs:
-        - targets: ['pushgateway:9100']
-        
+        - targets: ['pushgateway:9091']
+
+  - job_name: 'collectd-exporter'
+    # Collectd exporter (to get stats from collectd)
+
+    static_configs:
+        - targets: ['collectd-exporter:9103']
