@@ -1,12 +1,14 @@
 # prometheus_grafana_docker.yml
+# to start:
+#          docker-compose -f prometheus_grafana_docker.yml up
+#
 version: '2'
 services:
   prometheus:
     image: prom/prometheus
     volumes:
-      - /var/prometheusdata:/prometheus_data
     command:
-      - '-config.file=/prometheus_data/prom.yml'
+      - '-config.file=/prometheus/config.yml'
     ports:
       - '9090:9090'
   node-exporter:
