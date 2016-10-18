@@ -18,6 +18,7 @@ services:
       - ./prometheus:/prometheus
     command:
       - '-config.file=/prometheus/config.yml'
+      - '-storage.local.retention=168h'       #set default retention of metrics
     ports:
       - '9090:9090'
   node-exporter:
